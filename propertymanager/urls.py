@@ -15,9 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .. import customer_account, housing_application, property
+
 
 urlpatterns = [
-    path('customer/', customer_account.urls),
     path('admin/', admin.site.urls),
 ]

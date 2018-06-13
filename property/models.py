@@ -4,5 +4,5 @@ from housing_application.models import HousingApplication
 
 
 class Property(models.Model):
-    address = models.CharField()
-    housing_application = models.ForeignKey(HousingApplication)
+    address = models.CharField(max_length=250)
+    housing_application = models.ForeignKey(HousingApplication, on_delete=models.PROTECT)
