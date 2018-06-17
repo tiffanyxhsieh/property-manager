@@ -1,6 +1,6 @@
 from django.db import models
 from housing_application.models import HousingApplication
-from customer_account.models import Customer
+from accounts.models import Customer
 # Create your models here.
 
 

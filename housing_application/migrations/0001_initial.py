@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('customer_account', '0001_initial'),
+        ('accounts', '0001_initial'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('lease_start', models.DateField()),
                 ('lease_duration', models.CharField(blank=True, choices=[('6', '6 Months'), ('8', '8 Months'), ('12', '12 Months'), ('15', '15 Months')], default='12', help_text='Lease Duration', max_length=2)),
                 ('application_status', models.CharField(choices=[('APPLIED', 'Submitted'), ('IN_REVIEW', 'In review'), ('DENIED', 'Denied'), ('APPROVED', 'Approved')], max_length=15)),
-                ('applicants', models.ManyToManyField(to='customer_account.Customer')),
+                ('applicants', models.ManyToManyField(to='accounts.Customer')),
             ],
         ),
     ]

@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('housing_application', '0001_initial'),
-        ('customer_account', '0001_initial'),
+        ('accounts', '0001_initial'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('address', models.CharField(max_length=250)),
                 ('housing_application', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='housing_application.HousingApplication')),
-                ('occupied_by', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='customer_account.Customer')),
+                ('occupied_by', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='accounts.Customer')),
             ],
         ),
     ]
