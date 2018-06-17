@@ -12,3 +12,8 @@ class Customer(models.Model):
     date_of_birth = models.DateField()
 
 
+class Employee(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    employee_id = models.CharField(max_length=10)
+
+
