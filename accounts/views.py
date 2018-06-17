@@ -15,8 +15,9 @@ def customer_signup(request):
         basic_user_form = UserForm(request.POST)
         customer_form = CustomerForm(request.POST)
         if basic_user_form.is_valid() and customer_form.is_valid():
+            user = basic_user_form.save()
             customer = customer_form.save(commit=False)
-            customer.user = request.user
+            customer.user = user
             customer.save()
 
     else:
