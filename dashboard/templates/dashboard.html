@@ -4,8 +4,8 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-{% if user. %}
-    Hi {{ user.username }}!
+{% if user.is_authenticated %}
+    This is the dashboard.
     <p><a href="{% url 'logout' %}">logout</a></p>
 {% else %}
     <p>You are not logged in</p>

@@ -8,3 +8,4 @@ class Property(models.Model):
     address = models.CharField(max_length=250)
     housing_application = models.ForeignKey(HousingApplication, on_delete=models.PROTECT)
     occupied_by = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    publicly_available = models.BooleanField(default=False)
