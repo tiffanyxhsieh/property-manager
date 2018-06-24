@@ -1,12 +1,13 @@
+import uuid
 from django.db import models
 from accounts.models import Customer
 from localflavor.us.models import USZipCodeField, USStateField
-# Create your models here.
 
 #TODO: have a way to see property history (previous tenants)
 
 
 class Property(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     unit = models.CharField(max_length=10, default='')
     street_address = models.CharField(max_length=100, default='0')
     state = USStateField(default='')
@@ -15,4 +16,8 @@ class Property(models.Model):
     publicly_available = models.BooleanField(default=False)
 
     def __str__(self):
-        address = self.street_address
+        address = self.unit + ' ' + self.street_address
+        return address
+
+
+
