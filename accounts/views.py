@@ -14,7 +14,6 @@ from django.forms.formsets import formset_factory
 
 #TODO: check for unique email
 #TODO: figure out how to redirect after sign up submission
-#TODO: first and last name not saving
 
 
 def customer_signup(request):
@@ -25,12 +24,12 @@ def customer_signup(request):
             user = User.objects.create_user(username=basic_user_form.cleaned_data['username'],
                                             password=basic_user_form.cleaned_data['password'],
                                             first_name=basic_user_form.cleaned_data['first_name'],
-                                            last_name=basic_user_form.cleaned_data['first_name'],
+                                            last_name=basic_user_form.cleaned_data['last_name'],
             )
             customer = customer_form.save(commit=False)
             customer.user = user
             customer.save()
-            HttpResponsePermanentRedirect('/dashboard/')
+            HttpResponsePermanentRedirect('dashboard:')
 
     else:
         basic_user_form = UserForm()
