@@ -1,0 +1,18 @@
+
+<h1>Property List</h1>
+
+{% if property_list %}
+<ul>
+
+  {% for property in property_list %}
+  <li>
+    <a href="{{ property.get_absolute_url }}">{{ property.id }}</a> ({{property.street_address}})
+  </li>
+  {% endfor %}
+
+</ul>
+
+{% else %}
+  <p>There are no properties</p>
+
+{% endif %}
