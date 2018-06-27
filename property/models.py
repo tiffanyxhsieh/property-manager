@@ -22,8 +22,8 @@ class Property(models.Model):
         address = self.unit + ' ' + self.street_address
         return address
 
-    #def get_absolute_url(self):
-    #    return reverse('property-detail', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('property_detail',args=[str(self.id)])
 
 
 
