@@ -6,6 +6,7 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True, primary_key=True)
     phone_number = models.IntegerField()
     date_of_birth = models.DateField()
+    ss_number = models.IntegerField(default=1)
 
 
 class Employee(models.Model):
@@ -19,8 +20,6 @@ class Employee(models.Model):
                    )
 
     employee_type = models.IntegerField(choices=EMPLOYEE_TYPE, default=4)
-    ss_number = models.IntegerField(default=1)
-    id_number = models.IntegerField(default=2)
 
 
 

@@ -10,17 +10,7 @@ class HousingApplication(models.Model):
     date_application_submitted = models.DateTimeField()
     applicants = models.ManyToManyField(Customer)
     lease_start = models.DateField()
-    #property = models.ForeignKey(Property, on_delete=models.PROTECT, default=)
-
-    LEASE_DURATION_OPTIONS = (
-        ('6', '6 Months'),
-        ('8', '8 Months'),
-        ('12', '12 Months'),
-        ('15', '15 Months'),
-    )
-
-    lease_duration = models.CharField(max_length=2, choices=LEASE_DURATION_OPTIONS, blank=True, default='12',
-                                      help_text='Lease Duration')
+    property = models.ForeignKey(Property, on_delete=models.PROTECT, default='380a0e1e-95ae-4863-8b75-d2cef6d41b18')
 
     APPLICATION_STATUS_OPTIONS = (
         ('APPLIED', 'Submitted'),
@@ -29,4 +19,5 @@ class HousingApplication(models.Model):
         ('APPROVED', 'Approved'),
     )
 
-    application_status = models.CharField(max_length=15, choices=APPLICATION_STATUS_OPTIONS)
+    application_status = models.CharField(max_length=15, choices=APPLICATION_STATUS_OPTIONS,
+                                          default='APPLIED')
