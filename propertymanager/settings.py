@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'housing_application',
     'property',
     'propertymanager',
+    'lease',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

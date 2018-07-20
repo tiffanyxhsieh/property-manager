@@ -8,7 +8,6 @@ from property.models import Property
 
 class HousingApplication(models.Model):
     date_application_submitted = models.DateTimeField()
-    applicants = models.ManyToManyField(Customer)
     lease_start = models.DateField()
     property = models.ForeignKey(Property, on_delete=models.PROTECT, default='380a0e1e-95ae-4863-8b75-d2cef6d41b18')
 

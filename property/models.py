@@ -13,7 +13,6 @@ class Property(models.Model):
     street_address = models.CharField(max_length=100, default='0')
     state = USStateField(default='')
     zip_code = USZipCodeField(default='')
-    occupied_by = models.OneToOneField(Customer, on_delete=models.SET_NULL, blank=True, null=True)
     publicly_available = models.BooleanField(default=False)
     num_bedrooms = models.IntegerField(default=1)
     num_bathrooms = models.IntegerField(default=1)
