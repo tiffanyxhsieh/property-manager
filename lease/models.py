@@ -8,6 +8,7 @@ class Lease(models.Model):
 
     start_date = models.DateField
     property = models.ForeignKey(Property, on_delete=models.PROTECT)
+    is_approved = models.BooleanField(default=False)
 
     LEASE_DURATION_OPTIONS = (
         (6, '6 Months'),

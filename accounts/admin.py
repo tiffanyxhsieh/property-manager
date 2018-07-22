@@ -10,15 +10,19 @@ admin.site.unregister(User)
 
 class MyUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
-        fields = ('username', 'first_name', 'last_name','password1','password2')
+        pass
 
 
 class MyUserAdmin(BaseUserAdmin):
     add_form = MyUserCreationForm
 
+
+@admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ('ss_number',)
+
 # don't forget to register your custom admin class
 admin.site.register(User)
-admin.site.register(Customer)
-admin.site.register(Employee)
+
 
 
