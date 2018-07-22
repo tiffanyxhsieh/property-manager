@@ -23,3 +23,4 @@ class Lease(models.Model):
     approved_by = models.ForeignKey(Employee, on_delete=models.PROTECT)
     date_approved = models.DateField
 
+

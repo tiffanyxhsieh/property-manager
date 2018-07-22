@@ -8,8 +8,12 @@ from lease.models import Lease
 
 
 class HousingApplication(models.Model):
+    class Meta:
+        permissions = (
+            ('can_set_housing_application_status', 'Change housing application status'), )
+
     date_application_submitted = models.DateTimeField()
-    lease=models.ManyToManyField(Lease)
+    lease = models.ManyToManyField(Lease)
     property = models.ForeignKey(Property, on_delete=models.PROTECT, default='380a0e1e-95ae-4863-8b75-d2cef6d41b18')
 
     APPLICATION_STATUS_OPTIONS = (
@@ -23,6 +27,10 @@ class HousingApplication(models.Model):
                                           default='APPLIED')
 
 
-    #def approve_housing_application(self):
+
+
+
+
+
 
 
