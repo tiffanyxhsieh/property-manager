@@ -2,11 +2,13 @@ from django.db import models
 from property.models import Property
 from accounts.models import Employee
 from accounts.models import Customer
+from django.utils import timezone
+from datetime import date
+import datetime
 
-# Create your models here.
+
 class Lease(models.Model):
-
-    start_date = models.DateField(null=True, blank=True)
+    start_date = models.DateField(null=True, default=timezone.now)
     property = models.ForeignKey(Property, on_delete=models.PROTECT)
     is_approved = models.BooleanField(default=False)
 
@@ -23,5 +25,12 @@ class Lease(models.Model):
     #TODO:fix approved_by field.....getting null errors
     #approved_by = models.ForeignKey(Employee, on_delete=models.PROTECT)
     date_approved = models.DateTimeField(null=True, blank=True)
+
+    def is_in_progress(self):
+        if self.is_approved and self.start_date + datetime.timedelta(weeks=self.duration*4) < date.today():
+            return True
+        else:
+            return False
+
 
 
