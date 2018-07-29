@@ -16,6 +16,7 @@ class Property(models.Model):
     publicly_available = models.BooleanField(default=False)
     num_bedrooms = models.IntegerField(default=1)
     num_bathrooms = models.IntegerField(default=1)
+    rent = models.IntegerField(default=1000)
 
     def __str__(self):
         address = self.unit + ' ' + self.street_address
