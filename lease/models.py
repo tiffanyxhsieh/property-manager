@@ -5,9 +5,11 @@ from accounts.models import Customer
 from django.utils import timezone
 from datetime import date
 import datetime
+import uuid
 
 
 class Lease(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True)
     start_date = models.DateField(null=True, default=timezone.now)
     property = models.ForeignKey(Property, on_delete=models.PROTECT)
     is_approved = models.BooleanField(default=False)
