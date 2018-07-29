@@ -32,5 +32,11 @@ class Lease(models.Model):
         else:
             return False
 
+    def get_monthly_apartment_bill(self):
+        return self.monthly_fees + self.monthly_rent
 
+    def get_individual_rent(self):
+        return self.monthly_rent/self.applicants.all().__sizeof__()
 
+    def get_individual_monthly_fees(self):
+        return self.monthly_fees/self.applicants.all().__sizeof__()
