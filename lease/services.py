@@ -5,3 +5,6 @@ import housing_application.services
 
 def get_active_leases():
     return HousingApplication.objects.filter(application_status='APPROVED')
+
+
+def send_bill
